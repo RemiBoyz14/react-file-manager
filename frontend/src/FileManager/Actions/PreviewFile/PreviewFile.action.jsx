@@ -65,12 +65,6 @@ const PreviewFileAction = ({ filePreviewPath, filePreviewComponent }) => {
               {selectedFiles[0].size && <span>-</span>}
               <span className="file-size">{getDataSize(selectedFiles[0].size)}</span>
             </div>
-            <Button onClick={handleDownload} padding="0.45rem .9rem">
-              <div className="download-btn">
-                <MdOutlineFileDownload size={18} />
-                <span>{t("download")}</span>
-              </div>
-            </Button>
           </div>
         ))}
       {imageExtensions.includes(extension) && (

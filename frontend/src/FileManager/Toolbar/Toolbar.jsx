@@ -41,6 +41,12 @@ const Toolbar = ({
       onClick: () => triggerAction.show("createFolder"),
     },
     {
+      icon: <BsFilePlus size={17} strokeWidth={0.3} />,
+      text: t("newFile"),
+      permission: allowCreateFolder,
+      onClick: () => triggerAction.show("createFile"),
+    },
+    {
       icon: <MdOutlineFileUpload size={18} />,
       text: t("upload"),
       permission: allowUploadFile,
