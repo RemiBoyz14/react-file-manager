@@ -8,10 +8,10 @@ export const formatDate = (date) => {
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
-    timeZone: "America/Toronto",
+    timeZone: "Canada/Eastern",
   };
 
-  const formatted = new Intl.DateTimeFormat("en-CA", options).format(new Date(date));
+  const formatted = new Intl.DateTimeFormat("fr-CA", options).format(new Date(date));
 
   return formatted.replace(",", "");
 };
