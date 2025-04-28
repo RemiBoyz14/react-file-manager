@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { FaRegFile, FaRegFolderOpen } from "react-icons/fa6";
 import { useFileIcons } from "../../hooks/useFileIcons";
 import CreateFolderAction from "../Actions/CreateFolder/CreateFolder.action";
+import CreateFileAction from "../Actions/CreateFile/CreateFile.action";
 import RenameAction from "../Actions/Rename/Rename.action";
 import { getDataSize } from "../../utils/getDataSize";
 import { formatDate } from "../../utils/formatDate";
@@ -17,6 +18,7 @@ const FileItem = ({
   index,
   file,
   onCreateFolder,
+  onCreateFile,
   onRename,
   enableFilePreview,
   onFileOpen,
@@ -228,6 +230,13 @@ const FileItem = ({
                 filesViewRef={filesViewRef}
                 file={file}
                 onCreateFolder={onCreateFolder}
+                triggerAction={triggerAction}
+              />
+            ) : triggerAction.actionType === "createFile" ? (
+              <CreateFileAction
+                filesViewRef={filesViewRef}
+                file={file}
+                onCreateFile={onCreateFile}
                 triggerAction={triggerAction}
               />
             ) : (

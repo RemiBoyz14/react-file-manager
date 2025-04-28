@@ -21,6 +21,7 @@ const FileManager = ({
   fileUploadConfig,
   isLoading,
   onCreateFolder,
+  onCreateFile,
   onFileUploading = () => {},
   onFileUploaded = () => {},
   onCut,
@@ -91,6 +92,7 @@ const FileManager = ({
                       <BreadCrumb />
                       <FileList
                         onCreateFolder={onCreateFolder}
+                        onCreateFile={onCreateFile}
                         onRename={onRename}
                         onFileOpen={onFileOpen}
                         onRefresh={onRefresh}
@@ -141,6 +143,7 @@ FileManager.propTypes = {
   }),
   isLoading: PropTypes.bool,
   onCreateFolder: PropTypes.func,
+  onCreateFile: PropTypes.func,
   onFileUploading: PropTypes.func,
   onFileUploaded: PropTypes.func,
   onRename: PropTypes.func,
