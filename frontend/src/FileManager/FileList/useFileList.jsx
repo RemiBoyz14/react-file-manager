@@ -1,5 +1,5 @@
 import { BiRename, BiSelectMultiple } from "react-icons/bi";
-import { BsCopy, BsFolderPlus, BsGrid, BsScissors } from "react-icons/bs";
+import { BsCopy, BsFolderPlus, BsGrid, BsScissors, BsFilePlus } from "react-icons/bs";
 import { FaListUl, FaRegFile, FaRegPaste } from "react-icons/fa6";
 import { FiRefreshCw } from "react-icons/fi";
 import { MdOutlineDelete, MdOutlineFileDownload, MdOutlineFileUpload } from "react-icons/md";
@@ -75,6 +75,11 @@ const useFileList = (onRefresh, enableFilePreview, triggerAction) => {
     setVisible(false);
   };
 
+  const handleCreateNewFile = () => {
+    triggerAction.show("createFile");
+    setVisible(false);
+  };
+
   const handleUpload = () => {
     setVisible(false);
     triggerAction.show("uploadFile");
@@ -121,6 +126,11 @@ const useFileList = (onRefresh, enableFilePreview, triggerAction) => {
       title: t("newFolder"),
       icon: <BsFolderPlus size={18} />,
       onClick: handleCreateNewFolder,
+    },
+    {
+      title: t("newFile"),
+      icon: <BsFilePlus size={18} />,
+      onClick: handleCreateNewFile,
     },
     {
       title: t("upload"),
@@ -196,6 +206,21 @@ const useFileList = (onRefresh, enableFilePreview, triggerAction) => {
     });
   };
 
+  const handleFileCreating = () => {
+    setCurrentPathFiles((prev) => {
+      return [
+        ...prev,
+        {
+          name: duplicateNameHandler("New File", true, prev),
+          isDirectory: false,
+          path: currentPath,
+          isEditing: true,
+          key: new Date().valueOf(),
+        },
+      ];
+    });
+  };
+
   const handleItemRenaming = () => {
     setCurrentPathFiles((prev) => {
       if (prev[selectedFileIndexes.at(-1)]) {
@@ -226,6 +251,9 @@ const useFileList = (onRefresh, enableFilePreview, triggerAction) => {
       switch (triggerAction.actionType) {
         case "createFolder":
           handleFolderCreating();
+          break;
+          case "createFoile":
+          handleFileCreating();
           break;
         case "rename":
           handleItemRenaming();
