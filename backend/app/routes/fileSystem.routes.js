@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const upload = require("../middlewares/multer.middleware");
 const createFolderController = require("../controllers/createFolder.controller");
+const createFileController = require("../controllers/createFile.controller");
 const uploadFileController = require("../controllers/uploadFile.controller");
 const getItemsController = require("../controllers/getItems.controller");
 const copyItemController = require("../controllers/copyItem.controller");
@@ -10,6 +11,7 @@ const deleteItemController = require("../controllers/deleteItem.controller");
 const downloadFileController = require("../controllers/downloadFile.controller");
 
 router.post("/folder", createFolderController);
+router.post("/file", createFileController);
 router.post("/upload", upload.single("file"), uploadFileController);
 router.post("/copy", copyItemController);
 router.get("/", getItemsController);

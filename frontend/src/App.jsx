@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import FileManager from "./FileManager/FileManager";
 import { createFolderAPI } from "./api/createFolderAPI";
+import { createFileAPI } from "./api/createFileAPI";
 import { renameAPI } from "./api/renameAPI";
 import { deleteAPI } from "./api/deleteAPI";
 import { copyItemAPI, moveItemAPI } from "./api/fileTransferAPI";
@@ -35,6 +36,19 @@ function App() {
   const handleCreateFolder = async (name, parentFolder) => {
     setIsLoading(true);
     const response = await createFolderAPI(name, parentFolder?._id);
+    if (response.status === 200 || response.status === 201) {
+      setFiles((prev) => [...prev, response.data]);
+    } else {
+      console.error(response);
+    }
+    setIsLoading(false);
+  };
+  //
+
+  // Create File
+  const handleCreateFile = async (name, parentFolder) => {
+    setIsLoading(true);
+    const response = await createFileAPI(name, parentFolder?._id);
     if (response.status === 200 || response.status === 201) {
       setFiles((prev) => [...prev, response.data]);
     } else {
@@ -137,6 +151,7 @@ function App() {
           fileUploadConfig={fileUploadConfig}
           isLoading={isLoading}
           onCreateFolder={handleCreateFolder}
+          onCreateFile={handleCreateFile}
           onFileUploading={handleFileUploading}
           onFileUploaded={handleFileUploaded}
           onCut={handleCut}
