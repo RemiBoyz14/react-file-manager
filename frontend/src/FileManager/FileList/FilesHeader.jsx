@@ -2,8 +2,10 @@ import { useMemo, useState } from "react";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import { useSelection } from "../../contexts/SelectionContext";
 import { useFileNavigation } from "../../contexts/FileNavigationContext";
+import { useTranslation } from "../../contexts/TranslationProvider";
 
 const FilesHeader = ({ unselectFiles }) => {
+  const t = useTranslation();
   const [showSelectAll, setShowSelectAll] = useState(false);
 
   const { selectedFiles, setSelectedFiles } = useSelection();
@@ -33,9 +35,9 @@ const FilesHeader = ({ unselectFiles }) => {
           <Checkbox checked={allFilesSelected} onChange={handleSelectAll} title="Select all" disabled={currentPathFiles.length === 0} />
         )}
       </div>
-      <div className="file-name">Name</div>
-      <div className="file-date">Modified</div>
-      <div className="file-size">Size</div>
+      <div className="file-name">{t("name")}</div>
+      <div className="file-date">{t("modified")}</div>
+      <div className="file-size">{t("size")}</div>
     </div>
   );
 };

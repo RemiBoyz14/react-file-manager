@@ -11,6 +11,7 @@ import "./FileList.scss";
 
 const FileList = ({
   onCreateFolder,
+  onCreateFile,
   onRename,
   onFileOpen,
   onRefresh,
@@ -54,6 +55,7 @@ const FileList = ({
               index={index}
               file={file}
               onCreateFolder={onCreateFolder}
+              onCreateFile={onCreateFile}
               onRename={onRename}
               onFileOpen={onFileOpen}
               enableFilePreview={enableFilePreview}

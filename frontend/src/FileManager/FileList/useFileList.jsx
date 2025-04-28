@@ -252,7 +252,7 @@ const useFileList = (onRefresh, enableFilePreview, triggerAction) => {
         case "createFolder":
           handleFolderCreating();
           break;
-          case "createFoile":
+          case "createFile":
           handleFileCreating();
           break;
         case "rename":
