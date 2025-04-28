@@ -171,55 +171,6 @@ const CustomImagePreviewer = ({ file }) => {
 />;
 ```
 
-## 🤝 Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/branch-name`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Add some feature'`).
-5. Push to the branch (`git push origin feature/branch-name`).
-6. Open a Pull Request.
-
-Get started by running following commands:
-
-```bash
-git clone https://github.com/Saifullah-dev/react-file-manager.git
-cd react-file-manager
-```
-
-**Frontend**
-
-```bash
-cd frontend
-npm i
-npm run dev
-```
-
-The application should now be running on `http://localhost:5173`.
-
-**Backend**
-
-```bash
-cd backend
-npm i
-npm run devStart
-```
-
-The server should now be running on `http://localhost:3000`, have fun!
-
-**Database** <br> The application uses MongoDB to store file system changes (folders and images).
-
-1. Install MongoDB if not already installed.
-2. Ensure MongoDB service is running (default port: 27017).
-3. Create a database named `fileManagerDB` (or as specified in `backend/.env`).
-
-Check `backend/.env.example` for database configuration details.
-
-> Note: `backend` here is just an example implementation of react-file-manager into your
-> application. You may use any database and server combination of your choice.
-
 ## ©️ License
 
 React File Manager is [MIT Licensed](LICENSE).
