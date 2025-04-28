@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BsCopy, BsFolderPlus, BsGridFill, BsScissors } from "react-icons/bs";
+import { BsCopy, BsFolderPlus, BsGridFill, BsScissors, BsFilePlus } from "react-icons/bs";
 import { FiRefreshCw } from "react-icons/fi";
 import {
   MdClear,
