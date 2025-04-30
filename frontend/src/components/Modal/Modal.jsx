@@ -11,6 +11,7 @@ const Modal = ({
   dialogWidth = "25%",
   contentClassName = "",
   closeButton = true,
+  style = {}
 }) => {
   const modalRef = useRef(null);
   const t = useTranslation();
@@ -33,7 +34,7 @@ const Modal = ({
     <dialog
       ref={modalRef}
       className={`fm-modal dialog`}
-      style={{ width: dialogWidth }}
+      style={{ width: dialogWidth, ...style }}
       onKeyDown={handleKeyDown}
     >
       <div className="fm-modal-header">
