@@ -61,7 +61,8 @@ const Actions = ({
     if (triggerAction.isActive) {
       const actionType = triggerAction.actionType;
       if (actionType === "previewFile") {
-        actionTypes[actionType].title = selectedFiles?.name ?? t("preview");
+        return;
+        //actionTypes[actionType].title = selectedFiles?.name ?? t("preview");
       }
       setActiveAction(actionTypes[actionType]);
     } else {
