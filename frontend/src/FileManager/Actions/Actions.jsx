@@ -69,6 +69,14 @@ const Actions = ({
     }
   }, [triggerAction.isActive]);
 
+  if (triggerAction.isActive && triggerAction.actionType === "previewFile") {
+    return (
+      <div>
+        {actionTypes.previewFile.component}
+      </div>
+    );
+  }
+
   if (activeAction) {
     return (
       <Modal
