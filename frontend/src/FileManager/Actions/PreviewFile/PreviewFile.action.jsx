@@ -47,7 +47,8 @@ const PreviewFileAction = ({ filePreviewPath, filePreviewComponent }) => {
   if (React.isValidElement(customPreview)) {
     return customPreview;
   }
-
+  return null;
+  /*
   return (
     <section className={`file-previewer ${extension === "pdf" ? "pdf-previewer" : ""}`}>
       {hasError ||
@@ -98,7 +99,7 @@ const PreviewFileAction = ({ filePreviewPath, filePreviewComponent }) => {
         </>
       )}
     </section>
-  );
+  );*/
 };
 
 export default PreviewFileAction;
