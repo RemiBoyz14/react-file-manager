@@ -69,21 +69,15 @@ const Actions = ({
     }
   }, [triggerAction.isActive]);
 
-  if (triggerAction.isActive && triggerAction.actionType === "previewFile") {
-    return (
-      <div>
-        {actionTypes.previewFile.component}
-      </div>
-    );
-  }
-
   if (activeAction) {
+    const isPreview = triggerAction.actionType === "previewFile";
     return (
       <Modal
         heading={activeAction.title}
         show={triggerAction.isActive}
         setShow={triggerAction.close}
         dialogWidth={activeAction.width}
+        style={isPreview ? { visibility: "hidden" } : {}}
       >
         {activeAction?.component}
       </Modal>
